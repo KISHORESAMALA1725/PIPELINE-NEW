@@ -1,9 +1,20 @@
 pipeline {
-    agent none 
+    agent {
+        label 'java-slave'
+    }
     stages {
-        stage ('This is NONE-agent stage') {
+        stage ('This is JAVA-SLAVE: stage') {
             steps {
-                echo "Agent NONE is executed successfully"
+                script {
+                    sh 'java -version'
+                }
+            }
+        }
+        stage ('This is executing from DOCKER-SLAVE: stage') {
+            steps {
+                script {
+                    sh 'docker -version'
+                }
             }
         }
     }
