@@ -1,22 +1,16 @@
 pipeline {
     agent {
-        label 'java-slave'
+        label 'docker-slave'
     }
     stages {
-        stage ('This is JAVA-SLAVE: stage') {
+        stage ('This is first stage') {
             steps {
                 script {
-                    sh 'java -version'
-                }
-            }
-        }
-        stage ('This is executing from DOCKER-SLAVE: stage') {
-            agent {
-                label 'docker-slave'
-            }
-            steps {
-                script {
-                    sh 'docker version'
+                    def courses = "DevOps"
+                    if (courses == ${courses})
+                    println ("Welcome to ${courses} - course")
+                    else
+                    println ("Please enroll to ${course} now")
                 }
             }
         }
