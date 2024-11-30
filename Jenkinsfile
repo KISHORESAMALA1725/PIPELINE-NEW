@@ -1,16 +1,20 @@
 pipeline {
-    agent {
-        label 'java-slave'
-    }
+    agent any
     environment {
-       NEXUS_CREDS = credentials('nexus_creds')
+        database="DOCKER"
     }
     stages {
-        stage ('this is credentials - stage') {
+        stage ('this is build stage'){
+            when {
+                environment {
+                    name: 'database', value: 'DOCKER'
+                }
+            }
             steps {
-                echo "nexus credentials are ${NEXUS_CREDS}"
-                echo "username is ${NEXUS_CREDS_USR}"
-                echo "password is ${NEXUS_CREDS_PSW}"
+                echo "this will get executed in docker-slave machine"
+                script {
+                    'sh hostname'
+                }
             }
         }
     }
