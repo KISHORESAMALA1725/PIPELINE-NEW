@@ -1,13 +1,15 @@
 pipeline {
-    agent any
-    stages {
-
-        stage ("this is another retry example") {
+    agent {
+        label 'docker-slave'
+    }
+    stages{
+        stage ('this is docker-slave') {
             steps {
-                retry (3) {
-                    echo "welcome to jenkins"
+                options {
+                    timeout (time: 3, unit: 'seconds')
                 }
-                echo "other retry block"
+                echo "timeout-occurred, please retry again"
+                sleep 30
             }
         }
     }
