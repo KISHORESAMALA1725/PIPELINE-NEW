@@ -1,17 +1,12 @@
 pipeline {
     agent {
-        label 'docker-slave'
+        label 'java-slave'
     }
     stages {
-        stage ('This is first stage') {
+        stage('this is error stage') {
             steps {
-                script {
-                    def courses = 'KUBERNETES'
-                    if (courses == 'DevOps')
-                    println ("Welcome to ${courses} - course")
-                    else
-                    println ("Please enroll to ${courses} now")
-                }
+                echo "This stage will fail with error code"
+                error "ORA-01555"
             }
         }
     }
