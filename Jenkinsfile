@@ -1,13 +1,12 @@
 pipeline {
     agent any
-    stages {
-
-        stage ("this is another retry example") {
+    stages{
+        stage ("this is re-try example"){
             steps {
-                retry (3) {
-                    echo "welcome to jenkins"
+                retry (3){
+                echo " ***** retry example ***** "
+                error "this error parameter will fail the job"
                 }
-                echo "other retry block"
             }
         }
     }
