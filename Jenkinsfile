@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        database="DOCKER"
+        database="JAVA"
     }
     stages {
         stage ('this is build stage'){
