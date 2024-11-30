@@ -1,12 +1,14 @@
 pipeline {
     agent {
-        label 'java-slave'
+        label 'docker-slave'
     }
     stages {
-        stage('this is error stage') {
+        stage ('this is retry-stage') {
             steps {
-                echo "This stage will fail with error code"
-                error "ORA-01555"
+                retry 5{
+                    error "this is the error code ORA-01555"
+                    echo "this is error code"
+                }
             }
         }
     }
