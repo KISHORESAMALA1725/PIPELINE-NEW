@@ -1,9 +1,9 @@
 pipeline {
-    agent any
+    agent none 
     stages {
-        stage ('This is Maven - stage') {
+        stage ('This is NONE-agent stage') {
             steps {
-                echo "this stage is successfully executed"
+                echo "Agent NONE is executed successfully"
             }
         }
     }
