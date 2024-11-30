@@ -6,7 +6,7 @@ pipeline {
         stage ('this is docker-slave') {
             steps {
                 options {
-                    timeout (time: 3, unit: 'seconds')
+                    timeout (time: 3, unit: 'SECONDS')
                 }
                 echo "timeout-occurred, please retry again"
                 sleep 30
