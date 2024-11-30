@@ -6,9 +6,7 @@ pipeline {
     stages {
         stage ('this is build stage'){
             when {
-                environment {
-                    name: 'database', value: 'DOCKER'
-                }
+                environment name: 'database', value: 'DOCKER'
             }
             steps {
                 echo "this will get executed in docker-slave machine"
