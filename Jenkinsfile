@@ -11,6 +11,9 @@ pipeline {
             }
         }
         stage ('This is executing from DOCKER-SLAVE: stage') {
+            agent {
+                label 'docker-slave'
+            }
             steps {
                 script {
                     sh 'docker -version'
