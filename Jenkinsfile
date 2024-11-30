@@ -6,8 +6,8 @@ pipeline {
         stage ('this is retry-stage') {
             steps {
                 retry 5{
-                    error ('this is the error code ORA-01555')
-                    echo "this is error code"
+                error ('this is the error code ORA-01555')
+                echo "this is error code"
                 }
             }
         }
