@@ -10,7 +10,7 @@ pipeline {
                     if (courses == ${courses})
                     println ("Welcome to ${courses} - course")
                     else
-                    println ("Please enroll to ${course} now")
+                    println ("Please enroll to ${courses} now")
                 }
             }
         }
