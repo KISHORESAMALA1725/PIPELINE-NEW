@@ -6,7 +6,7 @@ pipeline {
         stage ('This is first stage') {
             steps {
                 script {
-                    def courses = 'DevOps'
+                    def courses = 'KUBERNETES'
                     if (courses == 'DevOps')
                     println ("Welcome to ${courses} - course")
                     else
