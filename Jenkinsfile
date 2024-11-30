@@ -2,28 +2,26 @@ pipeline {
     agent {
         label 'java-slave'
     }
-    tools {
-        maven 'maven-3.8.8'
+    environment {
+        name = 'KISHORE'
+        schema = 'SPSOWNER'
     }
     stages {
-        stage ('this is maven-stage') {
+        stage ('this is maven-stage: 1') {
             steps {
-                script {
-                    sh 'mvn -version'
-                }
+                echo "Welcome to ${name}"
+                echo "This is ${schema}"
             }
         }
-        stage ('this is from autoinstaller maven stage'){
-            tools {
-                maven 'maven-autoinstaller'
+        stage ('this is second-stage') {
+            environment {
+                database = 'SPSCOREP'
             }
             steps {
-                script {
-                    sh 'mvn -version'
-                    sh 'java -version'
-                }
+                echo "welcome mr.${name}"
+                echo "this is related to ${schema} schema"
+                echo "database name is ${database}"
             }
         }
     }
-
 }
