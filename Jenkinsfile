@@ -3,7 +3,7 @@ pipeline {
         label 'docker-slave'
     }
     environment {
-        database="JAVA"
+        database='JAVA'
     }
     stages {
         stage ('this is build stage'){
