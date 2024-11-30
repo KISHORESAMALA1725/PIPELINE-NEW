@@ -13,7 +13,7 @@ pipeline {
                 }
             }
         }
-        stage (this is from autoinstaller maven stage){
+        stage ('this is from autoinstaller maven stage'){
             tools {
                 maven 'maven-autoinstaller'
             }
