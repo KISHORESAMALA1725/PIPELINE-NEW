@@ -3,24 +3,14 @@ pipeline {
         label 'java-slave'
     }
     environment {
-        name = 'KISHORE'
-        schema = 'SPSOWNER'
+       NEXUS_CREDS = credentials('nexus_creds')
     }
     stages {
-        stage ('this is maven-stage: 1') {
+        stage ('this is credentials - stage') {
             steps {
-                echo "Welcome to ${name}"
-                echo "This is ${schema}"
-            }
-        }
-        stage ('this is second-stage') {
-            environment {
-                database = 'SPSCOREP'
-            }
-            steps {
-                echo "welcome mr.${name}"
-                echo "this is related to ${schema} schema"
-                echo "database name is ${database}"
+                echo "nexus credentials are ${NEXUS_CREDS}"
+                echo "username is ${NEXUS_CREDS_USR}"
+                echo "password is ${NEXUS_CREDS_PSW}"
             }
         }
     }
