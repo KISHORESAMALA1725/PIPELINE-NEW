@@ -1,15 +1,29 @@
 pipeline {
     agent {
-        label 'docker-slave'
+        label 'java-slave'
     }
-    stages{
-        stage ('this is docker-slave') {
+    tools {
+        maven 'maven-3.8.8'
+    }
+    stages {
+        stage ('this is maven-stage') {
             steps {
-                timeout (time: 3, unit: 'SECONDS'){
-                echo "timeout-occurred, please retry again"
-                sleep 30
+                script {
+                    sh 'mvn -version'
+                }
+            }
+        }
+        stage (this is from autoinstaller maven stage){
+            tools {
+                maven 'maven-autoinstaller'
+            }
+            steps {
+                script {
+                    sh 'mvn -version'
+                    sh 'java -version'
                 }
             }
         }
     }
+
 }
